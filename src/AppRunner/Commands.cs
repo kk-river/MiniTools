@@ -33,13 +33,6 @@ public class Commands
             return;
         }
 
-        if (options.WorkingDirectory is not null)
-        {
-            if (!Directory.Exists(options.WorkingDirectory)) { throw new DirectoryNotFoundException("Working directory does not exist."); }
-
-            Environment.CurrentDirectory = options.WorkingDirectory;
-        }
-
         ProcessStartInfo startInfo = new()
         {
             FileName = exec,
