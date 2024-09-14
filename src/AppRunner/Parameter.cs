@@ -9,7 +9,7 @@ internal record Parameter
     string Key,
     string? Operator,
     string? Value,
-    Preprocessor[] Preprocessors
+    Preprocessor[]? Preprocessors
 )
 {
     public string ToParamString()
@@ -28,6 +28,8 @@ internal record Parameter
 
     private string ProcessValue(string original)
     {
+        if (Preprocessors is null) { return original; }
+
         string processed = original;
         foreach (Preprocessor preprocessor in Preprocessors)
         {
