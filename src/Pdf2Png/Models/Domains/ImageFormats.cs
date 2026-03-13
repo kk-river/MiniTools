@@ -1,19 +1,23 @@
-﻿using KK.Lib.Toolkit;
-
 namespace Pdf2Png.Models.Domains;
 
 public enum ImageFormats
 {
-    [Extension("bmp")]
     Bitmap,
-    [Extension("png")]
     Png,
-    [Extension("jpg")]
     Jpeg,
 }
 
 
-public class ExtensionAttribute : AttachedValueAttribute<string>
+public static class ImageFormatsExtensions
 {
-    public ExtensionAttribute(string value) : base(value) { }
+    public static string ToExtension(this ImageFormats format)
+    {
+        return format switch
+        {
+            ImageFormats.Bitmap => "bmp",
+            ImageFormats.Png => "png",
+            ImageFormats.Jpeg => "jpg",
+            _ => "img",
+        };
+    }
 }

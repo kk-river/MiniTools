@@ -4,5 +4,6 @@
     <File Path="Directory.Build.props" />
   </Folder>
   <Project Path="src/NugetLicenseRetriever/NugetLicenseRetriever.csproj" Id="c47d8ee3-5b4e-4f85-8235-f2d582fc1b9f" />
+  <Project Path="src/Pdf2Png/Pdf2Png.csproj" />
   <Project Path="src\AppRunner\AppRunner.csproj" />
 </Solution>

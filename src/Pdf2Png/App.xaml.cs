@@ -1,16 +1,27 @@
-﻿using KK.Lib.MVVMHelper;
-using KK.Lib.MVVMHelper.DI;
-using Pdf2Png.UI;
+using System.Windows;
 
 namespace Pdf2Png;
 
-public partial class App : MVVMApplication
+public partial class App : Application
 {
-    public override void ConfigureServices(IContainer container)
+    public App()
     {
-
+        InitializeComponent();
     }
 
-    public override Type GetWindowType() => typeof(MainWindow);
-    public override Type GetWindowViewModelType() => typeof(MainWindowViewModel);
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        base.OnStartup(e);
+
+        MainWindow = new UI.MainWindow()
+        {
+            DataContext = new UI.MainWindowViewModel(),
+        };
+        MainWindow.Show();
+    }
+
+    protected override void OnActivated(EventArgs e)
+    {
+        base.OnActivated(e);
+    }
 }
